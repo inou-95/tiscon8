@@ -186,7 +186,7 @@ public class EstimateController {
         return "input-detail";
     }
  
-    @GetMapping("last")
+    @PostMapping(value = "last", params = "complete")
     String ind(Model model) {
         
         return "complete";
