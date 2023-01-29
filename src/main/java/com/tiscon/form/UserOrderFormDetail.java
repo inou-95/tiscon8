@@ -10,11 +10,25 @@ import javax.validation.constraints.NotNull;
  *
  * @author Oikawa Yumi
  */
-public class UserOrderForm {
+public class UserOrderFormDetail {
+    @NotBlank
+    private String tel;
+
+    @NotBlank
+    private String email;
+
+    @NotBlank
+    private String oldAddress;
+
+    @NotBlank
+    private String newAddress;
 
     @NotBlank
     private String oldPrefectureId;
 
+    @NotBlank
+    private String customerName;
+    
     @NotBlank
     private String newPrefectureId;
 
@@ -37,6 +51,43 @@ public class UserOrderForm {
     @NotNull
     private boolean washingMachineInstallation;
 
+    
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    public String getOldAddress() {
+        return oldAddress;
+    }
+
+    public void setOldAddress(String oldAddress) {
+        this.oldAddress = oldAddress;
+    }
+    public String getNewAddress() {
+        return newAddress;
+    }
+
+    public void setNewAddress(String newAddress) {
+        this.newAddress = newAddress;
+    }
 
     public String getOldPrefectureId() {
         return oldPrefectureId;
