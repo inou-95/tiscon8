@@ -139,7 +139,7 @@ public class EstimateController {
     }
 
     /**
-     * 申し込み完了画面に遷移する。
+     * 個人情報取り扱いチェック画面に遷移する。
      *
      * @param userOrderForm 顧客が入力した見積もり依頼情報
      * @param personal        精査結果
@@ -147,7 +147,7 @@ public class EstimateController {
      * @return 遷移先
      */
     @PostMapping(value = "order", params = "complete")
-    String complete(@Validated UserOrderForm userOrderForm, BindingResult result, Model model) {
+    String complete(@Validated UserOrderForm userOrderForm, BindingResult personal, Model model) {
         if (personal.hasErrors()) {
 
             model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
