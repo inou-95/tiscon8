@@ -17,18 +17,26 @@
     <div class="progress-icon">
       <img src="../img/progress_confirm.svg" />
     </div>
-    <div class="page-title">ご入力内容の確認</div>
+    <div class="page-title">概算お見積り結果と入力内容の確認</div>
     <div class="text-center">
       <div class="warning">
-        お見積り結果はこちら
+        概算お見積り結果はこちら
       </div>
       入力内容をご確認ください。<br/>
-      この内容でお見積りする場合は、「概算お見積もりをする」ボタンを押してください。
+      この内容でお見積りする場合は、「詳細お見積もりをする」ボタンを押してください。
     </div>
     <ul th:if="${#fields.hasErrors('all')}">
       <li th:each="err : ${#fields.errors('all')}" th:text="${err}"></li>
     </ul>
+
+
+
     <div class="col-sm-12">
+
+      <div class="text-center">
+        <div class="primary-text"><span th:text="${price}"></span>円</div>
+      </div>
+
       <div class="sub-title">集荷元・お届け先</div>
       <table class="table table-bordered">
         <col span="1" style="background-color: #FFFFFF;">
