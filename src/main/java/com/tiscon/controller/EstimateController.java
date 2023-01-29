@@ -147,8 +147,8 @@ public class EstimateController {
      * @return 遷移先
      */
     @PostMapping(value = "order", params = "complete")
-    String complete(@Validated UserOrderForm userOrderForm, BindingResult personal, Model model) {
-        if (personal.hasErrors()) {
+    String complete(@Validated UserOrderForm userOrderForm, BindingResult result, Model model) {
+        if (result.hasErrors()) {
 
             model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
             model.addAttribute("userOrderForm", userOrderForm);
