@@ -89,7 +89,7 @@ public class EstimateController {
      * @param model         遷移先に連携するデータ
      * @return 遷移先
      */
-    @PostMapping(value = "result", params = "backToInput")
+    @PostMapping(value = "personal", params = "backToInput")
     String backToInput(UserOrderForm userOrderForm, Model model) {
         model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
         model.addAttribute("userOrderForm", userOrderForm);
@@ -114,13 +114,13 @@ public class EstimateController {
      * 概算見積もり画面に遷移する。
      *
      * @param userOrderForm 顧客が入力した見積もり依頼情報
-     * @param result        精査結果
+     * @param personal        精査結果
      * @param model         遷移先に連携するデータ
      * @return 遷移先
      */
-    @PostMapping(value = "result", params = "calculation")
-    String calculation(@Validated UserOrderForm userOrderForm, BindingResult result, Model model) {
-        if (result.hasErrors()) {
+    @PostMapping(value = "personal", params = "calculation")
+    String calculation(@Validated UserOrderForm userOrderForm, BindingResult personal, Model model) {
+        if (personal.hasErrors()) {
 
             model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
             model.addAttribute("userOrderForm", userOrderForm);
@@ -135,20 +135,20 @@ public class EstimateController {
         model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
         model.addAttribute("userOrderForm", userOrderForm);
         model.addAttribute("price", price);
-        return "result";
+        return "personal";
     }
 
     /**
      * 申し込み完了画面に遷移する。
      *
      * @param userOrderForm 顧客が入力した見積もり依頼情報
-     * @param result        精査結果
+     * @param personal        精査結果
      * @param model         遷移先に連携するデータ
      * @return 遷移先
      */
     @PostMapping(value = "order", params = "complete")
     String complete(@Validated UserOrderForm userOrderForm, BindingResult result, Model model) {
-        if (result.hasErrors()) {
+        if (personal.hasErrors()) {
 
             model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
             model.addAttribute("userOrderForm", userOrderForm);
