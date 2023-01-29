@@ -161,5 +161,12 @@ public class EstimateController {
 
         return "complete";
     }
-
+    @GetMapping("input-detail")
+    String inde(Model model) {
+        if (!model.containsAttribute("userOrderForm")) {
+            model.addAttribute("userOrderForm", new UserOrderForm());
+        }
+        model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
+        return "input-detail";
+    }
 }
